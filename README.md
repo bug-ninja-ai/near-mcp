@@ -83,7 +83,50 @@ npx @nearai/near-mcp@latest run
 
 ## Available Tools
 
-see [TOOLS.md](./TOOLS.md) for a list of available tools and arguments.
+This MCP server provides 22 tools organized into the following categories:
+
+### System Management
+
+- `system_list_local_keypairs` - List all NEAR accounts and keypairs in local keystore by network
+- `system_import_account` - Import an account into local keystore from private key or file
+- `system_remove_local_account` - Remove a local account from keystore
+
+### Account Operations
+
+- `account_view_account_summary` - Get summary information about any NEAR account
+- `account_export_account` - Export a NEAR account from local keystore to file
+- `account_sign_data` - Cryptographically sign data with account's private key
+- `account_verify_signature` - Verify signed data against account's public key
+- `account_create_implicit_account` - Create an implicit account derived from public key
+- `account_create_account` - Create a new NEAR account with account ID
+- `account_delete_account` - Delete an account from NEAR blockchain
+- `account_list_access_keys` - List all access keys for an account
+- `account_add_access_key` - Add access key to account (full access or function call)
+- `account_delete_access_keys` - Delete access key from account by public key
+
+### Token Operations
+
+- `tokens_send_near` - Send NEAR tokens to an account
+- `tokens_send_ft` - Send fungible tokens (FT) like USDC, USDT, WNEAR based on NEP-141/NEP-148
+
+### Contract Interaction
+
+- `contract_view_functions` - View available functions on a NEAR smart contract
+- `contract_get_function_args` - Get arguments of a function call (experimental)
+- `contract_call_raw_function_as_read_only` - Call contract function as read-only view method
+- `contract_call_raw_function` - Call contract function as transaction (costs gas)
+
+### Search & Discovery
+
+- `search_near_fungible_tokens` - Search for fungible token contract information by account ID, symbol, or name
+
+### DeFi Integration
+
+- `ref_finance_get_pools` - Search for liquidity pools on Ref Finance exchange
+- `ref_finance_get_swap_estimate` - Get swap estimate from Ref Finance exchange
+- `ref_finance_execute_swap` - Execute token swap on Ref Finance
+
+For detailed parameter specifications and usage examples, see [TOOLS.md](./TOOLS.md).
 
 ## Integration with AI Models
 
